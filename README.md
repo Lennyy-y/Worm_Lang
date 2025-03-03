@@ -99,3 +99,7 @@ To run a `.worm` file, use the following command:
 ```bash
 python Main.py your_script.worm
 ```
+
+## Credits
+
+Created by Amit Bar Kama & Lenny Medina as a final project for Programming Languages course
