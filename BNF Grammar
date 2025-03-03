@@ -1,0 +1,47 @@
+<program> ::= <statement_list>
+
+<statement_list> ::= <statement> | <statement> <statement_list>
+
+<statement> ::= <print_statement>
+              | <let_statement>
+              | <if_statement>
+              | <for_statement>
+
+<print_statement> ::= "PRINT(" <expression> ")"
+
+<let_statement> ::= "LET" <function_name> "(" <parameter_list> ")" ":" <expression> "END"
+                 | "LET" <function_name> ":" <if_statement> "END"
+
+<if_statement> ::= "IF" <condition> "THEN" <expression> "ELSE" <expression> "END"
+
+<for_statement> ::= "FOR" <identifier> "=" <expression> "TO" <expression> "THEN" <print_statement>
+
+<expression> ::= <term> | <term> <binary_op> <expression> | <lambda_expression>
+
+<term> ::= <number> | <identifier> | <function_call> | <comparison>
+
+<binary_op> ::= "+" | "-" | "*" | "/" | "%"
+
+<comparison> ::= <term> <comparison_op> <term>
+
+<comparison_op> ::= "==" | "!=" | ">" | "<" | ">=" | "<="
+
+<function_call> ::= <function_name> "(" <argument_list> ")"
+
+<function_name> ::= <identifier>
+
+<parameter_list> ::= <identifier> | <identifier> "," <parameter_list>
+
+<argument_list> ::= <expression> | <expression> "," <argument_list>
+
+<lambda_expression> ::= "LAMBDA(" <parameter_list> ")" ":" <expression> "END" "(" <argument_list> ")"
+
+<condition> ::= <comparison> | <logical_expression>
+
+<logical_expression> ::= <term> <logical_op> <term>
+
+<logical_op> ::= "AND" | "OR" | "NOT"
+
+<identifier> ::= [a-zA-Z_][a-zA-Z0-9_]*
+
+<number> ::= [0-9]+

@@ -1,0 +1,161 @@
+PRINT("This is our worm language interpreter")
+
+# Arithmetic operations
+
+LET add(x, y) : x + y END
+
+LET subtract(x, y) : x - y END
+
+LET multiply(x, y) : x * y END
+
+LET divide(x, y) : x / y END
+
+LET modulo(x, y) : x % y END
+
+# Printing Results with operation details
+
+PRINT("Running add(1, 2)")
+
+PRINT( add(1, 2) ) # Should print 3
+
+PRINT("Running subtract(5, 3)")
+
+PRINT( subtract(5, 3) ) # Should print 2
+
+PRINT("Running multiply(3, 4)")
+
+PRINT( multiply(3, 4) ) # Should print 12
+
+PRINT("Running divide(10, 2)")
+
+PRINT( divide(10, 2) ) # Should print 5
+
+PRINT("Running modulo(10, 3)")
+
+PRINT( modulo(10, 3) ) # Should print 1
+
+# Logical operations
+
+LET and(x, y) : x AND y END
+
+LET or(x, y) : x OR y END
+
+LET not(x) : NOT x END
+
+# Printing Results with operation details
+
+PRINT("Running and(TRUE, FALSE)")
+
+PRINT( and(TRUE, FALSE) ) # Should print FALSE
+
+PRINT("Running or(TRUE, FALSE)")
+
+PRINT( or(TRUE, FALSE) ) # Should print TRUE
+
+PRINT("Running not(TRUE)")
+
+PRINT( not(TRUE) ) # Should print FALSE
+
+# Comparison operations
+
+LET equal(x, y) : x == y END
+
+LET not_equal(x, y) : x != y END
+
+LET greater_than(x, y) : x > y END
+
+LET less_than(x, y) : x < y END
+
+LET greater_than_or_equal(x, y) : x >= y END
+
+LET less_than_or_equal(x, y) : x <= y END
+
+# Printing Results with operation details
+
+PRINT("Running equal(1, 1)")
+
+PRINT( equal(1, 1) ) # Should print TRUE
+
+PRINT("Running not_equal(1, 2)")
+
+PRINT( not_equal(1, 2) ) # Should print TRUE
+
+PRINT("Running greater_than(2, 1)")
+
+PRINT( greater_than(2, 1) ) # Should print TRUE
+
+PRINT("Running less_than(1, 2)")
+
+PRINT( less_than(1, 2) ) # Should print TRUE
+
+PRINT("Running greater_than_or_equal(2, 2)")
+
+PRINT( greater_than_or_equal(2, 2) ) # Should print TRUE
+
+PRINT("Running less_than_or_equal(1, 1)")
+
+PRINT( less_than_or_equal(1, 1) ) # Should print TRUE
+
+# Conditional statements
+
+LET max(x, y) : IF x > y THEN x ELSE y END
+
+LET min(x, y) : IF x < y THEN x ELSE y END
+
+# Printing Results with operation details
+
+PRINT("Running max(1, 2)")
+
+PRINT( max(1, 2) ) # Should print 2
+
+PRINT("Running min(1, 2)")
+
+PRINT( min(1, 2) ) # Should print 1
+
+# Looping statements
+
+PRINT("Running binary loop from 0 to 5")
+
+FOR i = 0 TO 5 THEN PRINT( 2^i )
+
+# Recursive function definition
+
+LET fibonacci(x) : IF x == 0 THEN 0 ELIF x == 1 THEN 1 ELSE fibonacci(x-1) + fibonacci(x-2) END
+
+# Printing Results with operation details
+
+PRINT("Running fibonacci(5)")
+
+PRINT( fibonacci(5) ) # Should print 5
+
+# Lambda functions
+
+PRINT("Running lambda function on 5")
+
+PRINT( LAMBDA(x) : x + 1 END (5) ) # Should print 6
+
+# Function within function
+
+LET binary_loop(x) : FOR i = 0 TO x THEN 2^i END
+
+PRINT("LET binary_loop(x) : FOR i = 0 TO x THEN 2^i END")
+
+PRINT("Running binary_loop(5)")
+
+PRINT( binary_loop(5) ) # Should print [1, 2, 4, 8, 16]
+
+LET complex_func(x, y) : multiply(add(x, y) , LAMBDA(x) : x + 1 END (2) ) END
+
+PRINT("LET complex_func(x, y) : multiply(add(x, y) , LAMBDA(x) : x + 1 END (2) ) END")
+
+PRINT("Running complex_func(2, 3)")
+
+PRINT( complex_func(2, 3) ) # Should print (2 + 3) * (2 + 1) = 15
+
+LET calculate(x , y) : add( add(x , y) , multiply( multiply( x , y ) , 2 ) ) END
+
+PRINT("LET calculate(x , y) : add( add(x , y) , multiply( multiply( x , y ) , 2 ) ) END")
+
+PRINT("Running calculate(3, 4)")
+
+PRINT( calculate(3, 4) ) # Should print 31
